@@ -188,6 +188,7 @@ INSTALLED_APPS = (
     'djangobb_forum',
     'Note',
     'Upload',
+    'QA',
 
 )
 
@@ -233,7 +234,8 @@ FORCE_SCRIPT_NAME = ''
 # Haystack settings
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'ENGINE':
+                   'QA.whoosh_cn_backend.WhooshEngine',
         'PATH': os.path.join(PROJECT_ROOT, 'djangobb_index'),
         'INCLUDE_SPELLING': True,
     },

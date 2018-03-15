@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^forum/', include('djangobb_forum.urls', namespace='djangobb')),
     url(r'^Note/', include('Note.urls', namespace='Note')),
     url(r'^Upload/', include('Upload.urls', namespace='Upload')),
+    url(r'^QA/', include('QA.urls', namespace='QA')),
 ]
 
 # PM Extension
