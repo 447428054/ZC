@@ -15,6 +15,8 @@ from . import models
 import os
 from .stopwordcut import seg_sentence
 from .modelLDA import LDA
+from .spider_test.spider_main import Spide
+
 import codecs
 
 # 路径统一在这里修改
@@ -80,6 +82,10 @@ def registerNormalUser(request):
     outputs.close()
     inputs.close()
     LDA()
+    Spide()
+
+
+
 
     
 
