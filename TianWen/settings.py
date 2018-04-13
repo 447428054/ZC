@@ -13,6 +13,9 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+DEFAULT_CHARSET = 'utf-8'
+
+FILE_CHARSET = 'utf-8'
 
 DATABASES = {
     'default': {

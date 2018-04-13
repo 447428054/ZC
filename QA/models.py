@@ -16,6 +16,14 @@ class Question(models.Model):
     def __str__(self):
         return self.answer
 
+    def toDict(self):
+        return {'keyword1':self.keyword1,
+                "keyword2":self.keyword2,
+                "answer":self.answer,
+                "views":self.views,
+                "pub_date":self.pub_date
+                }
+
 
 class commonUser(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)  # 用户访问的问题
