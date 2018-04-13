@@ -30,7 +30,7 @@ def AllNotes(request):
 def Note_Page(request, note_id):
     note = models.Note.objects.get(pk=note_id)
     (note.summay,note.label)=finalGet(note.content,5)
-    note_dict=toDicts(note)
+    note_dict=note.toDict()
     Note= json.dumps(note_dict, ensure_ascii=False)
     return HttpResponse(Note,content_type='application/json')
 
@@ -40,7 +40,7 @@ def Edit_Page(request, note_id):
         return render(request, 'Note/Edit_Page.html')
     note = models.Note.objects.get(pk=note_id)
     (note.summay,note.label)=finalGet(note.content,5)
-    note_dict=toDicts(note)
+    note_dict=note.toDict()
     Note=json.dumps(note_dict, ensure_ascii=False)
     return HttpResponse(Note,content_type='application/json')
 
@@ -65,6 +65,6 @@ def Edit_action(request):
         note.summay=summay
         note.label=label
         note.save()
-        note_dict=toDicts(note)
+        note_dict=note.toDict()
         Note=json.dumps(note_dict, ensure_ascii=False)
         return HttpResponse(Note,content_type='application/json')
