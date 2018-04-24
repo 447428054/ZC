@@ -21,15 +21,17 @@ class Question(models.Model):
                 "keyword2":self.keyword2,
                 "answer":self.answer,
                 "views":self.views,
-                "pub_date":self.pub_date
                 }
 
 
-class commonUser(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)  # 用户访问的问题
-    username = models.CharField(max_length=20)  # 用户名
-    password = models.CharField(max_length=100)  # 用户密码
-    votes = models.IntegerField(default=0)  # 用户浏览过的答案个数
+class UserToQuestion(models.Model):
+    question = models.TextField(verbose_name='问题', default="")  # 用户访问的问题
+    userid = models.IntegerField(default=0)  # 用户名ID
+    pub_date = models.DateTimeField('date published', auto_now=True)  # 问题的更新时间
 
     def __str__(self):
-        return self.username
+        return self.userid
+
+    def toDict(self):
+        return {'question': self.question,
+                }
